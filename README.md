@@ -1,5 +1,12 @@
 # PVZPatch
 
+### PVZ环境说明
+测试用的PVZ版本是**1.0.0.1051汉化２版图鉴加强版**，只要不是魔改版PVZ应该都可以用。
+下载链接：http://lonelystar.org/ResDownload/1_PC_C.htm#v1.0_2
+
+### 使用方法
+首先我们需要给 PlantsVsZombies.exe 打上一些补丁，使PVZ能够加载我们的DLL文件，且不影响PVZ正常加载。
+以下是给文件打补丁的代码，用Python实现：
 ```py
 '''
 PVZPatcher.py
