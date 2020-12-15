@@ -1,13 +1,12 @@
-﻿#include <windows.h>
+﻿#include "Injector.hpp"
+#define PATCH_VERSION L"1.0"
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
-    switch (ul_reason_for_call) {
-        case DLL_PROCESS_ATTACH:
-        case DLL_THREAD_ATTACH:
-        case DLL_THREAD_DETACH:
-        case DLL_PROCESS_DETACH:
-            break;
+    if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
+        WCHAR TITLE[100] = { 0 };
+        wsprintf(TITLE, L"PVZ Patch (version %s)", PATCH_VERSION);
+        MessageBox(NULL, L"DLL is patched to PVZ process!", TITLE, MB_OK);
+        patch();
     }
     return TRUE;
 }
-
