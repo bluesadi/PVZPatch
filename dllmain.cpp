@@ -1,6 +1,7 @@
 ﻿#include "Injector.hpp"
 #define PATCH_VERSION L"1.0"
 
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
     if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
         WCHAR TITLE[100] = { 0 };

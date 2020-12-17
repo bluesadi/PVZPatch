@@ -41,20 +41,25 @@ void WriteByte(DWORD address, BYTE value) {
 }
 
 void WriteBytes(DWORD address, INT n, DWORD value, ...) {
-	DWORD dwret;
 	for (int i = 0; i < n; i++) {
 		WriteByte(address + i, (&value)[i]);
 	}
 }
 
-void WriteCall(DWORD from, DWORD to) {
-	DWORD rel32 = to - (from + 5);
-	BYTE* lprel32 = (BYTE*)&rel32;
-	WriteBytes(from, 5, 0xE8, lprel32[0], lprel32[1], lprel32[2], lprel32[3]);
+void WriteString(DWORD address,LPCSTR str) {
+	for (int i = 0; str[i]; i++) {
+		WriteByte(address + i, str[i]);
+	}
 }
 
-void WriteJmpRel32(DWORD from, DWORD to) {
-	DWORD rel32 = to - (from + 5);
-	BYTE* lprel32 = (BYTE*)&rel32;
-	WriteBytes(from, 5, 0xE9, lprel32[0], lprel32[1], lprel32[2], lprel32[3]);
+void WriteCall(DWORD address, DWORD func) {
+	DWORD rel32 = func - (address + 5);
+	WriteByte(address, 0xE8);
+	WriteDword(address + 1, rel32);
+}
+
+void WriteJmpRel32(DWORD address, DWORD dest) {
+	DWORD rel32 = dest - (address + 5);
+	WriteByte(address, 0xE9);
+	WriteDword(address + 1, dest);
 }
