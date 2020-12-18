@@ -156,9 +156,10 @@
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Address.hpp" />
-    <ClInclude Include="Injector.hpp" />
-    <ClInclude Include="MemoryUtil.hpp" />
+    <ClInclude Include="Address.h" />
+    <ClInclude Include="Injector.h" />
+    <ClInclude Include="MemoryUtil.h" />
+    <ClInclude Include="ZombieType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

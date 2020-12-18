@@ -20,13 +20,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MemoryUtil.hpp">
+    <ClInclude Include="Address.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Injector.hpp">
+    <ClInclude Include="Injector.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Address.hpp">
+    <ClInclude Include="MemoryUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieType.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

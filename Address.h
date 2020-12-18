@@ -1,8 +1,7 @@
 #define IMAGE_BASE 0x00400000 //No ASLR
 #define SUN_PICK_UP_ADDRESS 0x004309F0 //B9 19 00 00 00  mov ecx, 19h
-#define SUN_ADDRESS readDword(readDword(0x6a9ec0) + 0x768) + 0x5560 //dynamic address
+#define SUN_ADDRESS ReadDword(ReadDword(0x6a9ec0) + 0x768) + 0x5560 //dynamic address
 #define SUB_SUN_ADDRESS 0x0041BA74 //2B F3  sub esi, ebx
-#define MAX_SUN 9990 //00430A1D 81 F9 06 27 00 00  cmp ecx, 9990
 #define JUDGE_PLANT_PLACED_ADDRESS 0x0040FE2D //85 C0  test eax, eax
 #define SET_COOLDOWN_ADDRESS 0x00488E76 //C6 45 48 00  mov byte ptr [ebp+48h], 0
 #define JUDGE_PICK_UP_SUN_ADDRESS 0x0043158F //75 08  jnz short loc_431599
@@ -13,3 +12,5 @@
 #define FUNCTION_RAND_ADDRESS 0x0061E087
 #define JMP_GAME_PAUSE_ADDRESS 0x0044F473 //0044F473 74 08  jz short loc_44F47D
 #define JMP_MUSIC_PAUSE_ADDRESS 0x0054EBDF //0054EBDF 74 0E  jz short loc_54EBEF
+
+#define FUNC_CALL_ZOMBIE_ADDRESS 0x0040DDC0
