@@ -7,7 +7,8 @@
 ### 使用方法
 首先我们需要给 **PlantsVsZombies.exe** 打上一些补丁，使PVZ能够加载我们的DLL文件，且不影响PVZ正常加载。\
 以下是给文件打补丁的代码，用Python实现：
-```py
+
+```python
 '''
 PVZPatcher.py
 2020/12/17 by bluesadi
@@ -41,3 +42,4 @@ if __name__ == "__main__":
 - 无限阳光（DEBUG）
 - 拾取阳光 25 -> 50
 - 鼠标点击游戏外时不再会暂停
+- 尸潮模式
