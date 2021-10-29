@@ -79,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>patch</TargetName>
-    <OutDir>C:\Users\blues\Desktop\PVZ</OutDir>
+    <OutDir>..\PVZ\PVZ原版</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -153,10 +153,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Injector.cpp" />
+    <ClCompile Include="MemoryUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="Injector.h" />
     <ClInclude Include="MemoryUtil.h" />
     <ClInclude Include="ZombieType.h" />

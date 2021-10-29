@@ -7,7 +7,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
         WCHAR TITLE[100] = { 0 };
         wsprintf(TITLE, L"PVZ Patch (version %s)", PATCH_VERSION);
         MessageBox(NULL, L"DLL is patched to PVZ process!", TITLE, MB_OK);
-        patch();
+        Inject();
     }
     return TRUE;
 }

@@ -31,3 +31,4 @@
 #define JALAPENO_ZOMBIE 30 //火爆辣椒僵尸
 #define TALL_NUT_ZOMBIE 31 //高坚果僵尸
 #define GATLING_PEA_ZOMBIE 32 //机枪射手僵尸
+#define ZOMBIE_NUM 32 // 僵尸数量

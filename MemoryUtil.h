@@ -1,58 +1,25 @@
+#ifndef _MEMORY_UTIL_
+#define _MEMORY_UTIL_
+
 #include <windows.h>
 
-void SetMemWrtieable(DWORD address,SIZE_T size) {
-	DWORD old;
-	VirtualProtect((LPVOID)address, size, PAGE_EXECUTE_READWRITE, &old);
-}
+void SetMemWrtieable(DWORD address, SIZE_T size);
 
-DWORD ReadDword(DWORD address) {
-	PDWORD p = (PDWORD)address;
-	return *p;
-}
+DWORD ReadDword(DWORD address);
 
-void WriteDword(DWORD address, DWORD value) {
-	SetMemWrtieable(address, 4);
-	PDWORD p = (PDWORD)address;
-	*p = value;
-}
+void WriteDword(DWORD address, DWORD value);
 
-BYTE ReadByte(DWORD address) {
-	PBYTE p = (PBYTE)address;
-	return *p;
-}
+BYTE ReadByte(DWORD address);
 
-void WriteByte(DWORD address, BYTE value) {
-	SetMemWrtieable(address, 1);
-	PBYTE p = (PBYTE)address;
-	*p = value;
-}
+void WriteByte(DWORD address, BYTE value);
 
-void WriteBytes(DWORD address, SIZE_T n, DWORD value, ...) {
-	for (int i = 0; i < n; i++) {
-		WriteByte(address + i, (&value)[i]);
-	}
-}
+void WriteBytes(DWORD address, SIZE_T n, DWORD value, ...);
 
-void WriteString(DWORD address,LPCSTR str) {
-	for (int i = 0; str[i]; i++) {
-		WriteByte(address + i, str[i]);
-	}
-}
+void WriteString(DWORD address, LPCSTR str);
 
-void WriteCall(DWORD address, DWORD func) {
-	DWORD rel32 = func - (address + 5);
-	WriteByte(address, 0xE8);
-	WriteDword(address + 1, rel32);
-}
+void WriteCall(DWORD address, DWORD func);
 
-void WriteNop(DWORD address, SIZE_T size) {
-	for (int i = 0; i < size; i ++) {
-		WriteByte(address + i, 0x90);
-	}
-}
+void WriteNop(DWORD address, SIZE_T size);
 
-void WriteJmpRel32(DWORD address, DWORD dest) {
-	DWORD rel32 = dest - (address + 5);
-	WriteByte(address, 0xE9);
-	WriteDword(address + 1, dest);
-}
+void WriteJmpRel32(DWORD address, DWORD dest);
+#endif
